@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<div class="header"></div>
+<!-- 省 -->
+<select id="province"></select>
+<!-- 市 -->
+<select id="city"></select>
+<!-- 区 -->
+<select id="district"></select>
+<script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			/*$(".header").load("header.html");*/
+			$.when($.get("header.html"), $.get("data/info.json")).then(function(data1, data2){
+				console.log(data1[0]);
+				$(".header").append(data1[0]).children("h1").text(data2[0].title);
+			});
+		});
+
+ 
+
+	/*$(function(){
+		$.ajax("data/addresses.json").done(function(data){
+			var addr = {};
+			$.each(data.regions, function(index, province){
+					addr[province.name] = {};
+
+				$.each(province.regions, function(index, city){
+					addr[province.name][city.name] = [];
+
+					$.each(city.regions, function(){
+						addr[province.name][city.name].push(this.name);	
+					});
+				});
+			});
+			initProvince();		
+		});
+	});*/
+		
+				
+</script>
+</body>
+</html
